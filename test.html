@@ -1,0 +1,28 @@
+<script>
+function ConvertFromTo(value,from,to){
+    if (from==="celcius"){
+        if(to==="celcius"){
+            let result=value;
+            return result;
+        }
+        else if(to==="kelvein"){
+            let result=value+273.15;
+            return result;
+        }
+        else if(to==="farnhit"){
+            let result=(value * 9/5) + 32;
+            return result;
+        }
+        else{
+
+        }
+    }
+    else{
+
+    }
+
+}
+
+let result= ConvertFromTo(25,"celcius","farnhit");
+console.log(result);
+</script>

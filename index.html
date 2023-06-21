@@ -1,0 +1,472 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <title></title>
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="colapse-menu">
+                <div class="menu-header">
+                    <div class="open-button" onclick="openMenu()" id="openButton">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </div>
+                    <button class="close-menu" onclick="closeMenu()" id="closeButton">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </button>
+                    <h2>Convert Any Thing</h2>
+                </div>
+                <hr class="menu-line1" />
+                <div class="menu-continer" id="menu-continer">
+                    <ul>
+                        <li>
+                            <a href="index.html">
+                                <i class="fa " aria-hidden="true"></i>
+                                home
+                            </a>
+                        </li>
+                        <hr class="menu-line" />
+                        <li>
+                            <a href="temperature.html">
+                                <i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i>
+                                Temperature
+                            </a>
+                        </li>
+                        <hr class="menu-line" />
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-arrows-h" aria-hidden="true"></i>
+                                Length</a>
+                        </li>
+                        <hr class="menu-line" />
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-plug" aria-hidden="true"></i>
+                                Power
+                            </a>
+                        </li>
+                        <hr class="menu-line" />
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-area-chart" aria-hidden="true"></i>
+                                Surface
+                            </a>
+                        </li>
+                        <hr class="menu-line" />
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-car" aria-hidden="true"></i>
+                                speed
+                            </a>
+                        </li>
+                        <hr class="menu-line" />
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-battery-quarter" aria-hidden="true"></i>
+                                Energie
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+
+        </nav>
+        <div class="search-bar">
+            <label for="site-search"></label>
+            <input type="search" id="site-search" value="Search" name="q">
+
+            <button class="search-btn">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+        </div>
+        <hr class="primary-line" />
+    </header>
+    <div class="category-pictures">
+        
+        <a class="Category" href="temperature.html">
+            <img src="images/temperature-image.jpg" alt="temperature-image">
+            <p class="imge-title">Temperature</p>
+            <i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i>
+        </a>
+        <div class="Category">
+            <img src="images/length.jpg" alt="temperature-image">
+            <p class="imge-title">Length</p>
+            <i class="fa fa-arrows-h" aria-hidden="true"></i>
+        </div>
+        <div class="Category">
+            <img src="images/power.jpg" alt="temperature-image">
+            <p class="imge-title">Power</p>
+            <i class="fa fa-plug" aria-hidden="true"></i>
+        </div>
+        <div class="Category">
+            <img src="images/speed.jpg" alt="temperature-image">
+            <p class="imge-title">Speed</p>
+            <i class="fa fa-area-chart" aria-hidden="true"></i>
+        </div>
+        <div class="Category">
+            <img src="images/surface.jpg" alt="temperature-image">
+            <p class="imge-title">Surface</p>
+            <i class="fa fa-area-chart" aria-hidden="true"></i>
+        </div>
+        <div class="Category">
+            <img src="images/energie.jpg" alt="temperature-image">
+            <p class="imge-title">Energie</p>
+            <i class="fa fa-battery-quarter" aria-hidden="true"></i>
+        </div>
+    </div>
+    <!--
+    <main class="main-container">
+        <div class="no-functionel-button">
+            <button class="from-and-to-button">FROM</button>
+            <button class="from-and-to-button">TO</button>
+        </div>
+        <div class="from-and-to-select-option">
+            <div class="left-side">
+            <select class="from-select-option select-option" name="from" id="from-options" onchange="run()">
+                <option value=0>Select a Category</option>
+                <option value=1>Temperature</option>
+                <option value=2>Length</option>
+                <option value=3>Power</option>
+                <option value=4>Surface</option>
+                <option value=5>Speed</option>
+                <option value=6>Energie</option>
+            </select>
+
+            <ul class="Temperature-units units" id="temperature-units">
+               
+                <li id="celcius">Celcius</li>
+                <li id="farnhit">Farnhit</li>
+                <li id="kelvein">Kelvein</li>
+            </ul>
+
+            <ul class="Length-units units" id="length-units">
+                <li>Centimiter</li>
+                <li>Meter</li>
+                <li>Kilomiter</li>
+                <li>Mile</li>
+            </ul>
+
+            <ul class="power-units units" id="power-units">
+                <li>Watt (W)</li>
+                <li>Kilowatt (kW)</li>
+                <li>Horsepower (hp)</li>
+                <li>Calorie per second (cal/s)</li>
+            </ul>
+
+            <ul class="surface-units units" id="surface-units">
+                <li>Square meter (m²)</li>
+                <li>Square kilometer (km²)</li>
+                <li>Square foot (ft²)</li>
+                <li>Acre (ac)</li>
+            </ul>
+
+            <ul class="speed-units units" id="speed-units">
+                <li>Meters per second (m/s)</li>
+                <li>Kilometers per hour (km/h)</li>
+                <li>Miles per hour (mph)</li>
+                <li>Knot (kt)</li>
+                <li>Feet per second (ft/s):</li>
+            </ul>
+
+            <ul class="energie-units units" id="energie-units">
+                <li>Joule (J)</li>
+                <li>Kilowatt-hour (kWh)</li>
+                <li>Calorie (cal)</li>
+                <li>Electronvolt (eV)</li>
+                <li>British Thermal Unit (BTU)</li>
+            </ul>
+            </div>
+            <div class="right-side">
+                <ul class="right-temperature-units right-units" id="right-temperature-units">
+                    <li>Celcius</li>
+                    <li>Farnhit</li>
+                    <li>Kelvein</li>
+                </ul>
+                <ul class="right-Length-units right-units" id="right-length-units">
+                    <li>Centimiter</li>
+                    <li>Meter</li>
+                    <li>Kilomiter</li>
+                    <li>Mile</li>
+                </ul>
+                <ul class="right-power-units right-units" id="right-power-units">
+                    <li>Watt (W)</li>
+                    <li>Kilowatt (kW)</li>
+                    <li>Horsepower (hp)</li>
+                    <li>Calorie per second (cal/s)</li>
+                </ul>
+    
+                <ul class="right-surface-units right-units" id="right-surface-units">
+                    <li>Square meter (m²)</li>
+                    <li>Square kilometer (km²)</li>
+                    <li>Square foot (ft²)</li>
+                    <li>Acre (ac)</li>
+                </ul>
+    
+                <ul class="right-speed-units right-units" id="right-speed-units">
+                    <li>Meters per second (m/s)</li>
+                    <li>Kilometers per hour (km/h)</li>
+                    <li>Miles per hour (mph)</li>
+                    <li>Knot (kt)</li>
+                    <li>Feet per second (ft/s):</li>
+                </ul>
+    
+                <ul class="right-energie-units right-units" id="right-energie-units">
+                    <li>Joule (J)</li>
+                    <li>Kilowatt-hour (kWh)</li>
+                    <li>Calorie (cal)</li>
+                    <li>Electronvolt (eV)</li>
+                    <li>British Thermal Unit (BTU)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="information-display">
+            
+        </div>
+
+    </main>
+    -->
+    <script>
+        let menuContiner = document.getElementById("menu-continer");
+        let openButton = document.getElementById("openButton");
+        let closeButton = document.getElementById("closeButton");
+        /*
+
+        let temperatureUnits = document.getElementById("temperature-units");
+        let toTemperatureUnits = document.getElementById("right-temperature-units");
+
+        let lengthUnits = document.getElementById("length-units");
+        let toLengthUnits = document.getElementById("right-length-units");
+
+        let powerUnits = document.getElementById("power-units");
+        let toPowerUnits = document.getElementById("right-power-units");
+
+        let surfaceUnits = document.getElementById("surface-units");
+        let toSurfaceUnits = document.getElementById("right-surface-units");
+
+        let speedUnits = document.getElementById("speed-units");
+        let toSpeedUnits = document.getElementById("right-speed-units");
+
+        let energieUnits = document.getElementById("energie-units");
+        let toEnergieUnits = document.getElementById("right-energie-units");
+
+   
+        
+
+        function RemoveEveryThing(){
+            lengthUnits.style.display = "none";
+                toLengthUnits.style.display = "none";
+
+                powerUnits.style.display = "none";
+                toPowerUnits.style.display = "none";
+
+                surfaceUnits.style.display = "none";
+                toSurfaceUnits.style.display = "none";
+
+                speedUnits.style.display = "none";
+                toSpeedUnits.style.display = "none";
+
+                temperatureUnits.style.display = "none";
+                toTemperatureUnits.style.display="none";
+
+                energieUnits.style.display = "none";
+                toEnergieUnits.style.display="none"
+        }
+
+
+        function run() {
+
+            let categoryToConvert = document.getElementById("from-options").value;
+                // Assign the value to a property of the global object (window in browsers)
+                    window.globalVariable = categoryToConvert;
+    
+
+
+            if (categoryToConvert === "1") {
+                temperatureUnits.style.display = "block";
+                toTemperatureUnits.style.display="block";
+
+                lengthUnits.style.display = "none";
+                toLengthUnits.style.display = "none";
+
+                powerUnits.style.display = "none";
+                toPowerUnits.style.display = "none";
+
+                surfaceUnits.style.display = "none";
+                toSurfaceUnits.style.display = "none";
+
+                speedUnits.style.display = "none";
+                toSpeedUnits.style.display = "none";
+
+                energieUnits.style.display = "none";
+                toEnergieUnits.style.display = "none";
+
+
+            }
+
+            else if (categoryToConvert === "2") {
+                lengthUnits.style.display = "block";
+                toLengthUnits.style.display="block";
+                temperatureUnits.style.display = "none";
+                toTemperatureUnits.style.display="none";
+
+                powerUnits.style.display = "none";
+                toPowerUnits.style.display = "none";
+
+                surfaceUnits.style.display = "none";
+                toSurfaceUnits.style.display = "none";
+
+                speedUnits.style.display = "none";
+                toSpeedUnits.style.display = "none";
+
+                energieUnits.style.display = "none";
+                toEnergieUnits.style.display = "none";
+            }
+
+            else if (categoryToConvert === "3") {
+                powerUnits.style.display = "block";
+                toPowerUnits.style.display="block";
+
+                temperatureUnits.style.display = "none";
+                toTemperatureUnits.style.display="none";
+
+                lengthUnits.style.display = "none";
+                toLengthUnits.style.display = "none";
+
+                surfaceUnits.style.display = "none";
+                toSurfaceUnits.style.display = "none";
+
+                speedUnits.style.display = "none";
+                toSpeedUnits.style.display = "none";
+
+                energieUnits.style.display = "none";
+                toEnergieUnits.style.display = "none";
+            }
+            else if (categoryToConvert === "4") {
+                surfaceUnits.style.display = "block";
+                toSurfaceUnits.style.display="block";
+
+                temperatureUnits.style.display = "none";
+                toTemperatureUnits.style.display="none";
+
+                powerUnits.style.display = "none";
+                toPowerUnits.style.display = "none";
+
+                lengthUnits.style.display = "none";
+                toLengthUnits.style.display = "none";
+
+                speedUnits.style.display = "none";
+                toSpeedUnits.style.display = "none";
+
+                energieUnits.style.display = "none";
+                toEnergieUnits.style.display = "none";
+            }
+            else if (categoryToConvert === "5") {
+                speedUnits.style.display = "block";
+                toSpeedUnits.style.display="block";
+
+                temperatureUnits.style.display = "none";
+                toTemperatureUnits.style.display="none";
+
+                powerUnits.style.display = "none";
+                toPowerUnits.style.display = "none";
+
+                lengthUnits.style.display = "none";
+                toLengthUnits.style.display = "none";
+
+                surfaceUnits.style.display = "none";
+                toSurfaceUnits.style.display = "none";
+
+                energieUnits.style.display = "none";
+                toEnergieUnits.style.display = "none";
+            }
+            else if (categoryToConvert === "6") {
+                energieUnits.style.display = "block";
+                toEnergieUnits.style.display="block";
+
+                temperatureUnits.style.display = "none";
+                toTemperatureUnits.style.display="none";
+
+                powerUnits.style.display = "none";
+                toPowerUnits.style.display = "none";
+
+                lengthUnits.style.display = "none";
+                toLengthUnits.style.display = "none";
+
+                surfaceUnits.style.display = "none";
+                toSurfaceUnits.style.display = "none";
+
+                speedUnits.style.display = "none";
+                toSpeedUnits.style.display = "none";
+            }
+            else {
+                    RemoveEveryThing();
+            }
+        }
+
+    //get all the units
+    let farnhit = document.getElementById("farnhit");
+    var farnhitValue=""; 
+farnhit.addEventListener("click", function() {
+  farnhitValue = this.textContent; 
+});
+console.log(farnhitValue);
+
+    let kelvein = document.getElementById("kelvein");
+    var kelveinValue=""; 
+kelvein.addEventListener("click", function() {
+  kelveinValue = this.textContent; 
+});
+console.log(kelveinValue);
+
+    var celcius = document.getElementById("celcius");
+    var celciusValue=""; 
+celcius.addEventListener("click", function() {
+  celciusValue = this.textContent; 
+});
+
+console.log(celciusValue);
+
+ //create a textarea element to dipsplay the result;
+        //create an element 
+          const textToDisplay="nothing";
+        const textareaElement=document.createElement("textarea");
+        textareaElement.placeholder= textToDisplay;
+        //ratachement avec le DOM
+        const divDisplay = document.querySelector(".information-display");
+        divDisplay.appendChild(textareaElement);
+        */
+        function openMenu() {
+            menuContiner.style.display = "unset";
+            openButton.style.display = "none";
+            closeButton.style.display = "unset";
+            console.log("open");
+        }
+        function closeMenu() {
+            console.log("close");
+
+            menuContiner.style.display = "none";
+            closeButton.style.display = "none";
+            openButton.style.display = "unset";
+        }
+
+    </script>
+    <footer>
+    </footer>
+
+</body>
+
+</html>
