@@ -256,12 +256,19 @@ body {
     }
     .Category{
         margin-top: 20px;
+        margin-left: 20px;
         padding:10px;
         text-align: center;
     }
     .Category img{
+        margin-bottom: 20px;
         width: 200px;
         height: 150px;
+    }
+    .imge-title{
+        text-decoration: none;
+        font-size: 20px;
+        padding:20px
     }
 /*responsivness*/
 @media only screen and (min-width: 900px) {
