@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <title></title>
+
+</head>
+
+<body>
+     <!--NavBar-->
+     <header>
+        <nav class="navbar">
+            <div class="colapse-menu">
+                <div class="menu-header">
+                    <div class="open-button" onclick="openMenu()" id="openButton">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </div>
+                    <button class="close-menu" onclick="closeMenu()" id="closeButton">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </button>
+                    <h2>Weight and Mass <i class="fa fa-balance-scale" aria-hidden="true"></i> </h2>
+                </div>
+                <hr class="menu-line1" />
+                <div class="menu-continer" id="menu-continer">
+                    <ul>
+                        <li>
+                            <a href="index.html">
+                                <i class="fa fa-home" aria-hidden="true"></i>    
+                                Home
+                            </a>
+                        </li>
+                        <hr class="menu-line" />
+                        <li>
+                            <a href="temperature.html">
+                                <i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i>
+                                Temperature
+                            </a>
+                        </li>
+                        <hr class="menu-line" />
+                        <li>
+                            <a href="length.html">
+                                <i class="fa fa-car" aria-hidden="true"></i>
+                                Length</a>
+                        </li>
+                        <hr class="menu-line" />    
+                        <li>
+                            <a href="weight.html">
+                                <i class="fa fa-balance-scale" aria-hidden="true"></i>
+                                Weight and Mass
+                            </a>
+                        </li>
+                        <hr class="menu-line" />
+                        <li>
+                            <a href="volume.html">
+                                <i class="fa fa-flask" aria-hidden="true"></i>
+                                Volume
+                            </a>
+                        </li>
+                        <hr class="menu-line" />
+                        <li>
+                            <a href="time.html">
+                                <i class="fa fa-hourglass-end" aria-hidden="true"></i>
+                                Time
+
+                            </a>
+                        </li>
+                        <hr class="menu-line" />
+                        <li>
+                            <a href="pressure.html">
+                              
+                                Pressure
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+        <div class="search-bar">
+            <label for="site-search"></label>
+            <input type="search" id="site-search" value="Search" name="q">
+
+            <button class="search-btn">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+        </div>
+        <hr class="primary-line" />
+        <!--navbar end -->
+
+    <main class="main-container">
+        <div class="no-functionel-button">
+            <button class="from-and-to-button">FROM</button>
+            <button class="from-and-to-button">TO</button>
+        </div>
+        <div class="from-and-to-select-option">
+            <div class="left-side">
+                <select class="from-select-option select-option" name="from" id="from-units">
+                    <option value=0>Select a Unit</option>
+                    <option value="gram">Gram (g)</option>
+                    <option value="kg">Kilogram (kg)</option>
+                    <option value="pound">Pound (lb)</option>
+                    <option value="once">Ounce (oz)</option>
+                    <option value="ton">Ton (t)</option>
+                </select>
+            </div>
+            <div class="left-side">
+                <select class="from-select-option select-option" name="to" id="to-units">
+                    <option value=0>Select a Unit</option>
+                    <option value="gram">Gram (g)</option>
+                    <option value="kg">Kilogram (kg)</option>
+                    <option value="pound">Pound (lb)</option>
+                    <option value="once">Ounce (oz)</option>
+                    <option value="ton">Ton (t)</option>
+                </select>
+            </div>
+        </div>
+        <div class="input-and-output">
+            <form>
+                <input type="number" id="input-area" name="inputValue" placeholder="Value to Convert" required>
+                <button type="submit" value="Convert">Convert</button>
+            </form>
+            <div class="result-display" id="outputArea"></div>
+        </div>
+    </main>
+    <script>
+ //weight conversion 
+            //get all the element by id 
+            const form = document.querySelector('form');
+            const fromUnits = document.getElementById("from-units");
+            const toUnits = document.getElementById("to-units");
+            const input = document.getElementById("input-area");
+            const outputArea = document.querySelector('#outputArea');
+            //functions to convert
+            function SameUnit(value){
+                return value;
+            }
+            
+            function GramToKilogram(value){
+                return value/1000;
+            }
+
+            function GramToPound(value){
+                return value/ 453.592;
+            }
+
+            function GramToOnce(value){
+                return value/ 28.3495;
+            }
+
+            function GramToTon(value){
+                return value/ 1000000;
+
+            }function KilogramToGram(value){
+                return value *1000;
+            }
+
+            function PoundToGram(value){
+                return value * 453.592 ;
+            }
+
+            function OnceToGram(value){
+                return value  * 28.3495 ;
+            }
+
+            function TonToGram(value){
+                return value  * 1000000;
+            }
+
+
+
+
+            
+            //main function
+            function ConvertFromTo(value,from,to){
+                if (from==="gram"){
+                    if(to==="gram"){
+                        return SameUnit(value);
+                    }
+                    else if(to==="kg"){
+                        return GramToKilogram(value).toFixed(2);
+                    }
+                    else if (to==="pound"){
+                        return GramToPound(value).toFixed(2);
+                    }
+                    else if (to==="once"){
+                        return GramToOnce(value).toFixed(2);
+                    }
+                    else if(to==="ton"){
+                        return GramToTon(value).toFixed(2);
+                    }
+                }
+                else if (from==="kg"){
+                    if(to==="gram"){
+                        return KilogramToGram(value);
+                    }
+                    else if(to==="kg"){
+                        return SameUnit(value);
+                    }
+                    else if (to==="pound"){
+                        return GramToPound(KilogramToGram(value)).toFixed(2);
+                    }
+                    else if (to==="once"){
+                        return GramToOnce(KilogramToGram(value)).toFixed(2);
+                    }
+                    else if(to==="ton"){
+                        return GramToTon(KilogramToGram(value)).toFixed(2);
+                    }
+                }
+                else if (from==="pound"){
+                    if(to==="gram"){
+                        return PoundToGram(value);
+                    }
+                    else if(to==="kg"){
+                        return GramToKilogram(PoundToGram(value)).toFixed(2);
+                    }
+                    else if (to==="pound"){
+                        return SameUnit(value);
+                    }
+                    else if (to==="once"){
+                        return GramToOnce(PoundToGram(value)).toFixed(2);
+                    }
+                    else if(to==="ton"){
+                        return GramToTon(PoundToGram(value)).toFixed(2);
+                    }
+                }
+                else if (from==="once"){
+                    if(to==="gram"){
+                        return OnceToGram(value);
+                    }
+                    else if(to==="kg"){
+                        return GramToKilogram(OnceToGram(value)).toFixed(2);
+                    }
+                    else if (to==="pound"){
+                        return GramToPound(OnceToGram(value)).toFixed(2);
+                    }
+                    else if (to==="once"){
+                        return SameUnit(value);
+                    }
+                    else if(to==="ton"){
+                        return GramToTon(OnceToGram(value)).toFixed(2);
+                    }
+                }
+                else if (from==="ton"){
+                    if(to==="gram"){
+                        return TonToGram(value);
+                    }
+                    else if(to==="kg"){
+                        return GramToKilogram(TonToGram(value)).toFixed(2);
+                    }
+                    else if (to==="pound"){
+                        return GramToPound(TonToGram(value)).toFixed(2);
+                    }
+                    else if (to==="once"){
+                        return GramToOnce(TonToGram(value)).toFixed(2);
+                    }
+                    else if(to==="ton"){
+                        return SameUnit(value);
+                    }
+                }
+
+
+            }
+            form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+        let result=ConvertFromTo(input.value, fromUnits.value, toUnits.value);
+        text= `${input.value} ${fromUnits.value} = ${result} ${toUnits.value}`;
+        console.log(ConvertFromTo(input.value,"meter", "mile"));
+        outputArea.textContent = text;
+      input.value = "";
+    });
+
+
+
+
+        let menuContiner = document.getElementById("menu-continer");
+        let openButton = document.getElementById("openButton");
+        let closeButton = document.getElementById("closeButton");
+        function openMenu() {
+            menuContiner.style.display = "unset";
+            openButton.style.display = "none";
+            closeButton.style.display = "unset";
+            console.log("open");
+        }
+        function closeMenu() {
+            console.log("close");
+
+            menuContiner.style.display = "none";
+            closeButton.style.display = "none";
+            openButton.style.display = "unset";
+        }
+
+    </script>
+    <footer>
+    </footer>
+
+</body>
+
+</html>
