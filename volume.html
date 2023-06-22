@@ -105,21 +105,19 @@
             <div class="left-side">
                 <select class="from-select-option select-option" name="from" id="from-units">
                     <option value=0>Select a Unit</option>
-                    <option value="celcius">Meter (m)</option>
-                    <option value="farnhit">Kilometer (km)</option>
-                    <option value="kelvein">Foot (ft)</option>
-                    <option value="kelvein">Inch (in)</option>
-                    <option value="kelvein">Mile (mi)</option>
+                    <option value="liter">Liter (L)</option>
+                    <option value="mililiter">Milliliter (mL)</option>
+                    <option value="pint">Pint (pt)</option>
+                    <option value="fluidOnce">Fluid Ounce (fl oz)</option>
                 </select>
             </div>
             <div class="left-side">
                 <select class="from-select-option select-option" name="to" id="to-units">
                     <option value=0>Select a Unit</option>
-                    option value="celcius">Meter (m)</option>
-                    <option value="farnhit">Kilometer (km)</option>
-                    <option value="kelvein">Foot (ft)</option>
-                    <option value="kelvein">Inch (in)</option>
-                    <option value="kelvein">Mile (mi)</option>
+                    <option value="liter">Liter (L)</option>
+                    <option value="mililiter">Milliliter (mL)</option>
+                    <option value="pint">Pint (pt)</option>
+                    <option value="fluidOnce">Fluid Ounce (fl oz)</option>
                 </select>
             </div>
         </div>
@@ -132,6 +130,140 @@
         </div>
     </main>
     <script>
+        //weight conversion 
+            //get all the element by id 
+            const form = document.querySelector('form');
+            const fromUnits = document.getElementById("from-units");
+            const toUnits = document.getElementById("to-units");
+            const input = document.getElementById("input-area");
+            const outputArea = document.querySelector('#outputArea');
+            //functions to convert
+            function SameUnit(value){
+                return value;
+            }
+            
+            function LiterToMilimiter(value){
+                return value*1000;
+            }
+
+            function LiterToPint(value){
+                return value* 2.11338;
+            }
+
+            function LiterToFluid(value){
+                return value * 33.814;
+            }
+
+            function MilliliterToLiter(value){
+                return value/ 1000;
+
+            }function PintToLiter(value){
+                return value * 0.473176;
+            }
+
+            function FluidToLiter(value){
+                return value * 0.0295735 ;
+            }
+
+            function OnceToGram(value){
+                return value  * 28.3495 ;
+            }
+
+            function TonToGram(value){
+                return value  * 1000000;
+            }
+
+
+
+
+            
+            //main function
+            function ConvertFromTo(value,from,to){
+                if (from==="liter"){
+                    if(to==="liter"){
+                        return SameUnit(value);
+                    }
+                    else if(to==="mililiter"){
+                        return LiterToMilimiter(value).toFixed(2);
+                    }
+                    else if (to==="pint"){
+                        return LiterToPint(value).toFixed(2);
+                    }
+                    else if (to==="fluidOnce"){
+                        return LiterToFluid(value).toFixed(2);
+                    }
+                }
+
+                else if (from==="mililiter"){
+                    if(to==="liter"){
+                        return MilliliterToLiter(value);
+                    }
+                    else if(to==="mililiter"){
+                        return SameUnit(value);
+                    }
+                    else if (to==="pint"){
+                        return LiterToPint(MilliliterToLiter(value)).toFixed(2);
+                    }
+                    else if (to==="fluidOnce"){
+                        return 
+                        LiterToFluid(MilliliterToLiter(value)).toFixed(2);
+                    }
+                }
+
+                else if (from==="pint"){
+                    if(to==="liter"){
+                        return PintToLiter(value).toFixed(2);
+                    }
+                    else if(to==="mililiter"){
+                        return LiterToMilimiter(PintToLiter(value)).toFixed(2);
+                    }
+                    else if (to==="pint"){
+                        return SameUnit(value);
+                    }
+                    else if (to==="fluidOnce"){
+                        LiterToFluid(PintToLiter(value)).toFixed(2);
+                    }
+                }
+
+                else if (from==="fluidOnce"){
+                    if(to==="liter"){
+                        return FluidToLiter(value).toFixed(2);
+                    }
+                    else if(to==="mililiter"){
+                        return LiterToMilimiter(FluidToLiter(value)).toFixed(2);
+                    }
+                    else if (to==="pint"){
+                        return LiterToPint(FluidToLiter()).toFixed(2);
+                    }
+                    else if (to==="fluidOnce"){
+                        return SameUnit(value);
+                    }
+                }   
+            }
+
+            form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+        let result=ConvertFromTo(input.value, fromUnits.value, toUnits.value);
+        text= `${input.value} ${fromUnits.value} = ${result} ${toUnits.value}`;
+        console.log(ConvertFromTo(input.value,"meter", "mile"));
+        outputArea.textContent = text;
+      input.value = "";
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         let menuContiner = document.getElementById("menu-continer");
         let openButton = document.getElementById("openButton");
         let closeButton = document.getElementById("closeButton");
