@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <title></title>
+
+</head>
+
+<body>
+     <!--NavBar-->
+     <header>
+        <nav class="navbar">
+            <div class="colapse-menu">
+                <div class="menu-header">
+                    <div class="open-button" onclick="openMenu()" id="openButton">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </div>
+                    <button class="close-menu" onclick="closeMenu()" id="closeButton">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </button>
+                    <h2>Length <i class="fa fa-car" aria-hidden="true"></i></h2>
+                </div>
+                <hr class="menu-line1" />
+                <div class="menu-continer" id="menu-continer">
+                    <ul>
+                        <li>
+                            <a href="index.html">
+                                <i class="fa fa-home" aria-hidden="true"></i>    
+                                Home
+                            </a>
+                        </li>
+                        <hr class="menu-line" />
+                        <li>
+                            <a href="temperature.html">
+                                <i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i>
+                                Temperature
+                            </a>
+                        </li>
+                        <hr class="menu-line" />
+                        <li>
+                            <a href="length.html">
+                                <i class="fa fa-car" aria-hidden="true"></i>
+                                Length</a>
+                        </li>
+                        <hr class="menu-line" />    
+                        <li>
+                            <a href="weight.html">
+                                <i class="fa fa-balance-scale" aria-hidden="true"></i>
+                                Weight and Mass
+                            </a>
+                        </li>
+                        <hr class="menu-line" />
+                        <li>
+                            <a href="volume.html">
+                                <i class="fa fa-flask" aria-hidden="true"></i>
+                                Volume
+                            </a>
+                        </li>
+                        <hr class="menu-line" />
+                        <li>
+                            <a href="time.html">
+                                <i class="fa fa-hourglass-end" aria-hidden="true"></i>
+                                Time
+
+                            </a>
+                        </li>
+                        <hr class="menu-line" />
+                        <li>
+                            <a href="pressure.html">
+                            
+                                Pressure
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+        <div class="search-bar">
+            <label for="site-search"></label>
+            <input type="search" id="site-search" value="Search" name="q">
+
+            <button class="search-btn">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+        </div>
+        <hr class="primary-line" />
+     </header>
+        <!--navbar end -->
+
+    <main class="main-container">
+        <div class="no-functionel-button">
+            <button class="from-and-to-button">FROM</button>
+            <button class="from-and-to-button">TO</button>
+        </div>
+        <div class="from-and-to-select-option">
+            <div class="left-side">
+                <select class="from-select-option select-option" name="from" id="from-units">
+                    <option value=0>Select a Unit</option>
+                    <option value="meter">Meter (m)</option>
+                    <option value="kilometer">Kilometer (km)</option>
+                    <option value="foot">Foot (ft)</option>
+                    <option value="inch">Inch (in)</option>
+                    <option value="mile">Mile (mi)</option>
+                </select>
+            </div>
+            <div class="left-side">
+                <select class="from-select-option select-option" name="to" id="to-units">
+                    <option value=0>Select a Unit</option>
+                    <option value="meter">Meter (m)</option>
+                    <option value="kilometer">Kilometer (km)</option>
+                    <option value="foot">Foot (ft)</option>
+                    <option value="inch">Inch (in)</option>
+                    <option value="mile">Mile (mi)</option>
+                </select>
+            </div>
+        </div>
+        <div class="input-and-output">
+            <form>
+                <input type="number" id="input-area" name="inputValue" placeholder="Value to Convert" required>
+                <button type="submit" value="Convert">Convert</button>
+            </form>
+            <div class="result-display" id="outputArea"></div>
+        </div>
+    </main>
+    <script>
+        //length conversion 
+            //get all the element by id 
+            const form = document.querySelector('form');
+            const fromUnits = document.getElementById("from-units");
+            const toUnits = document.getElementById("to-units");
+            const input = document.getElementById("input-area");
+            const outputArea = document.querySelector('#outputArea');
+            //functions to convert
+            function SameUnit(value){
+                return value;
+            }
+            
+            function MeterToKilometer(value){
+                return value/1000;
+            }
+
+            function MeterToFoot(value){
+                return value*3.28084;
+            }
+
+            function MeterToInch(value){
+                return value* 39.3701;
+            }
+
+            function MeterToMile(value){
+                return value * 0.000621371;
+
+            }function KilometerToMeter(value){
+                return value *1000;
+            }
+
+            function FootToMeter(value){
+                return value * 0.3048;
+            }
+
+
+            
+            //main function
+            function ConvertFromTo(value,from,to){
+                if (from==="meter"){
+                    if(to==="meter"){
+                        return SameUnit(value);
+                    }
+                    else if(to==="kilometer"){
+                        return MeterToKilometer(value).toFixed(2);
+                    }
+                    else if (to==="foot"){
+                        return MeterToFoot(value).toFixed(2);
+                    }
+                    else if (to==="inch"){
+                        return MeterToInch(value).toFixed(2);
+                    }
+                    else if(to==="mile"){
+                        return MeterToMile(value).toFixed(2);
+                    }
+                }
+                else if (from==="kilometer"){
+                    if(to==="meter"){
+                        return KilometerToMeter(value);
+                    }
+                    else if(to==="kilometer"){
+                        return SameUnit(value);
+                    }
+                    else if (to==="foot"){
+                        return MeterToFoot(KilometerToMeter(value)).toFixed(2);
+                    }
+                    else if (to==="inch"){
+                        return MeterToInch(KilometerToMeter(value)).toFixed(2);
+                    }
+                    else if(to==="mile"){
+                        return MeterToMile(KilometerToMeter(value)).toFixed(2);
+                    }
+                }
+                else if (from==="foot"){
+                    if(to==="meter"){
+                        return FootToMeter(value);
+                    }
+                    else if(to==="kilometer"){
+                        return MeterToKilometer(FootToMeter(value)).toFixed(2);;
+                    }
+                    else if (to==="foot"){
+                        return SameUnit(value);
+                    }
+                    else if (to==="inch"){
+                        return MeterToInch(FootToMeter(value)).toFixed(2);
+                    }
+                    else if(to==="mile"){
+                        return MeterToMile(FootToMeter(value)).toFixed(2);
+                    }
+                }
+
+
+            }
+            form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+        let result=ConvertFromTo(input.value, fromUnits.value, toUnits.value);
+        text= `${input.value} ${fromUnits.value} = ${result} ${toUnits.value}`;
+        console.log(ConvertFromTo(input.value,"meter", "mile"));
+        outputArea.textContent = text;
+      input.value = "";
+    });
+
+
+        //colapsing menu script 
+        let menuContiner = document.getElementById("menu-continer");
+        let openButton = document.getElementById("openButton");
+        let closeButton = document.getElementById("closeButton");
+        function openMenu() {
+            menuContiner.style.display = "unset";
+            openButton.style.display = "none";
+            closeButton.style.display = "unset";
+            console.log("open");
+        }
+        function closeMenu() {
+            console.log("close");
+
+            menuContiner.style.display = "none";
+            closeButton.style.display = "none";
+            openButton.style.display = "unset";
+        }
+
+    </script>
+    <footer>
+    </footer>
+
+</body>
+
+</html>
