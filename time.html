@@ -98,22 +98,20 @@
         <div class="from-and-to-select-option">
             <div class="left-side">
                 <select class="from-select-option select-option" name="from" id="from-units">
-                    <option value=0>Select a Unit</option>
-                    <option value="celcius">Meter (m)</option>
-                    <option value="farnhit">Kilometer (km)</option>
-                    <option value="kelvein">Foot (ft)</option>
-                    <option value="kelvein">Inch (in)</option>
-                    <option value="kelvein">Mile (mi)</option>
+                    <option value=0>Select Unit</option>
+                    <option value="second">Second (s)</option>
+                    <option value="minute">Minute (min)</option>
+                    <option value="hour">Hour (h)</option>
+                    <option value="day">Day (d)</option>
                 </select>
             </div>
             <div class="left-side">
                 <select class="from-select-option select-option" name="to" id="to-units">
-                    <option value=0>Select a Unit</option>
-                    option value="celcius">Meter (m)</option>
-                    <option value="farnhit">Kilometer (km)</option>
-                    <option value="kelvein">Foot (ft)</option>
-                    <option value="kelvein">Inch (in)</option>
-                    <option value="kelvein">Mile (mi)</option>
+                    <option value=0>Select Unit</option>
+                    <option value="second">Second (s)</option>
+                    <option value="minute">Minute (min)</option>
+                    <option value="hour">Hour (h)</option>
+                    <option value="day">Day (d)</option>
                 </select>
             </div>
         </div>
@@ -126,6 +124,113 @@
         </div>
     </main>
     <script>
+        //weight conversion 
+            //get all the element by id 
+            const form = document.querySelector('form');
+            const fromUnits = document.getElementById("from-units");
+            const toUnits = document.getElementById("to-units");
+            const input = document.getElementById("input-area");
+            const outputArea = document.querySelector('#outputArea');
+            //functions to convert
+            function SameUnit(value){
+                return value;
+            }
+            
+            function SecondToMinute(value){
+                return value/60;
+            }
+
+            function SecondToHour(value){
+                return value/3600;
+            }
+
+            function SecondToDay(value){
+                return value /86,400;
+            }
+
+            function MinuteToSecond(value){
+                return value*60;
+
+            }function HoursToSecond(value){
+                return value * 3600;
+            }
+
+
+            function DayToSecond(value){
+                return value * 86400 ;
+            }
+            //main function
+            function ConvertFromTo(value,from,to){
+                if (from==="second"){
+                    if(to==="second"){
+                        return SameUnit(value);
+                    }
+                    else if(to==="minute"){
+                        return SecondToMinute(value).toFixed(2);
+                    }
+                    else if (to==="hour"){
+                        return SecondToHour(value).toFixed(2);
+                    }
+                    else if (to==="day"){
+                        return SecondToDay(value).toFixed(2);
+                    }
+                }
+
+                else if (from==="minute"){
+                    if(to==="second"){
+                        return MinuteToSecond(value);
+                    }
+                    else if(to==="minute"){
+                        return SameUnit(value);
+                    }
+                    else if (to==="hour"){
+                        return SecondToHour(MinuteToSecond(value)).toFixed(2);
+                    }
+                    else if (to==="day"){
+                        return SecondToDay(MinuteToSecond(value)).toFixed(2);
+                    }
+                }
+
+                else if (from==="hour"){
+                    if(to==="second"){
+                        return HoursToSecond(value);
+                    }
+                    
+                    else if(to==="minute"){
+                        return SecondToMinute(HoursToSecond(value)).toFixed(2);
+                    }
+                    else if (to==="hour"){
+                        return SameUnit(value);
+                    }
+                    else if (to==="day"){
+                        return SecondToDay(HoursToSecond(value)).toFixed(2);
+                    }
+                }
+
+                else if (from==="day"){
+                    if(to==="second"){
+                        return DayToSecond(value);
+                    }
+                    else if(to==="minute"){
+                        return SecondToMinute(DayToSecond(value)).toFixed(2);
+                    }
+                    else if (to==="hour"){
+                        return SecondToHour(DayToSecond).toFixed(2);
+                    }
+                    else if (to==="day"){
+                        return SameUnit(value);
+                    }
+                }   
+            }
+
+            form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+        let result=ConvertFromTo(input.value, fromUnits.value, toUnits.value);
+        text= `${input.value} ${fromUnits.value} = ${result} ${toUnits.value}`;
+        console.log(ConvertFromTo(input.value,"meter", "mile"));
+        outputArea.textContent = text;
+      input.value = "";
+    });
         let menuContiner = document.getElementById("menu-continer");
         let openButton = document.getElementById("openButton");
         let closeButton = document.getElementById("closeButton");
