@@ -16,6 +16,7 @@
 </head>
 
 <body>
+    <!--NavBar-->
     <header>
         <nav class="navbar">
             <div class="colapse-menu">
@@ -26,14 +27,15 @@
                     <button class="close-menu" onclick="closeMenu()" id="closeButton">
                         <i class="fa fa-times" aria-hidden="true"></i>
                     </button>
-                    <h2>Temperature</h2>
+                    <h2>Temperature <i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i> </h2>
                 </div>
                 <hr class="menu-line1" />
                 <div class="menu-continer" id="menu-continer">
                     <ul>
                         <li>
                             <a href="index.html">
-                                <i class="fa fa-home" aria-hidden="true"></i>                                home
+                                <i class="fa fa-home" aria-hidden="true"></i>    
+                                Home
                             </a>
                         </li>
                         <hr class="menu-line" />
@@ -45,37 +47,37 @@
                         </li>
                         <hr class="menu-line" />
                         <li>
-                            <a href="#">
-                                <i class="fa-thin fa-ruler-horizontal" style="color: #f4f0f0;"></i>
-                                Length
-                            </a>
-                        </li>
-                        <hr class="menu-line" />
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-plug" aria-hidden="true"></i>
-                                Power
-                            </a>
-                        </li>
-                        <hr class="menu-line" />
-                        <li>
-                            <a href="#">
-                                <i class="fa-regular fa-ruler"></i>
-                                Surface
-                            </a>
-                        </li>
-                        <hr class="menu-line" />
-                        <li>
-                            <a href="#">
+                            <a href="length.html">
                                 <i class="fa fa-car" aria-hidden="true"></i>
-                                speed
+                                Length</a>
+                        </li>
+                        <hr class="menu-line" />    
+                        <li>
+                            <a href="weight.html">
+                                <i class="fa fa-balance-scale" aria-hidden="true"></i>
+                                Weight and Mass
                             </a>
                         </li>
                         <hr class="menu-line" />
                         <li>
-                            <a href="#">
-                                <i class="fa fa-battery-quarter" aria-hidden="true"></i>
-                                Energie
+                            <a href="volume.html">
+                                <i class="fa fa-flask" aria-hidden="true"></i>
+                                Volume
+                            </a>
+                        </li>
+                        <hr class="menu-line" />
+                        <li>
+                            <a href="time.html">
+                                <i class="fa fa-hourglass-end" aria-hidden="true"></i>
+                                Time
+
+                            </a>
+                        </li>
+                        <hr class="menu-line" />
+                        <li>
+                            <a href="pressure.html">
+                               
+                                Pressure
                             </a>
                         </li>
                     </ul>
@@ -94,7 +96,7 @@
             </button>
         </div>
         <hr class="primary-line" />
-    </header>
+        <!--navbar end -->
     
     <main class="main-container">
         <div class="no-functionel-button">
@@ -128,7 +130,7 @@
         </div>
     </main>
     <script>
-        const form = document.querySelector('form');
+    const form = document.querySelector('form');
     const fromUnits = document.getElementById("from-units");
     const toUnits = document.getElementById("to-units");
     const input = document.getElementById("input-area");
