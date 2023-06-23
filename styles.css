@@ -245,7 +245,6 @@ body {
         display: flex;
         width:100%;
         flex-wrap: nowrap;
-        background-color:#FFFFFF;
         font-family: 'Inter';
         font-style: normal;
         font-weight: 700;
@@ -255,15 +254,20 @@ body {
         overflow-x: scroll;
     }
     .Category{
-        margin-top: 20px;
-        margin-left: 20px;
-        padding:10px;
+        background-color: #d9e2eb;
+        border-radius: 10px;
+        margin: 20px;
+        padding:20px;
         text-align: center;
+    }
+    .Category:hover{
+        scale: 1.03;
     }
     .Category img{
         margin-bottom: 20px;
         width: 200px;
         height: 150px;
+        border-radius: 50%;
     }
     .imge-title{
         text-decoration: none;
